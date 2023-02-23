@@ -24,7 +24,7 @@ const register = (req, res) => {
       password: password,
     };
 
-    sendMail("signup", userObj);
+    // sendMail("signup", userObj);
 
     student.createUser(userObj, (err, result) => {
       if (err) return res.json({ status: false, error: err });

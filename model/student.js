@@ -1,5 +1,6 @@
 const { query } = require("express");
 const mongoose = require("mongoose");
+const emailValidator = require("email-validator");
 
 // student schema
 
@@ -10,6 +11,9 @@ const studentSchema = mongoose.Schema({
   email: {
     type: String,
     unique: true,
+    validate: function () {
+      return emailValidator.validate(this.email);
+    },
   },
   password: {
     type: String,
